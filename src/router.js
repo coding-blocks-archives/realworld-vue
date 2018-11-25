@@ -25,6 +25,26 @@ export default new Router({
       path: "/settings",
       name: "settings",
       component: () => import("@/views/Settings.vue")
+    },
+    {
+      path: "/editor",
+      name: "editor_new",
+      component: () => import("@/views/ArticleCreate.vue")
+    },
+    {
+      path: "/editor/:article_slug",
+      name: "editor_edit",
+      component: () => import("@/views/ArticleEdit.vue")
+    },
+    {
+      path: "/article/:article_slug",
+      name: "article",
+      component: () => import("@/views/Article.vue")
+    },
+    {
+      path: "/:username",
+      name: "profile",
+      component: () => import("@/views/Profile.vue")
     }
   ]
 });
