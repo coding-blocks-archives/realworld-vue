@@ -4,10 +4,10 @@ export const api = axios.create({
   baseURL: "https://conduit.productionready.io/api"
 });
 
-export function setJwt(jwt) {
+export function setToken(jwt) {
   api.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
 }
 
-export function clearJwt() {
+export function clearToken() {
   delete api.defaults.headers.common["Authorization"];
 }
