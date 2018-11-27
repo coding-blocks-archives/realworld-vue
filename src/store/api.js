@@ -5,7 +5,7 @@ export const api = axios.create({
 });
 
 export function setToken(jwt) {
-  api.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
+  api.defaults.headers.common["Authorization"] = `Token ${jwt}`;
 }
 
 export function clearToken() {
