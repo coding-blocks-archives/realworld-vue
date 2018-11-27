@@ -21,50 +21,12 @@
             </ul>
           </div>
 
-          <div class="article-preview">
-            <div class="article-meta">
-              <a href="profile.html"
-                ><img src="http://i.imgur.com/Qr71crq.jpg"
-              /></a>
-              <div class="info">
-                <a href="" class="author">Eric Simons</a>
-                <span class="date">January 20th</span>
-              </div>
-              <button class="btn btn-outline-primary btn-sm pull-xs-right">
-                <i class="ion-heart"></i> 29
-              </button>
-            </div>
-            <a href="" class="preview-link">
-              <h1>How to build webapps that scale</h1>
-              <p>This is the description for the post.</p>
-              <span>Read more...</span>
-            </a>
-          </div>
-
-          <div class="article-preview">
-            <div class="article-meta">
-              <a href="profile.html"
-                ><img src="http://i.imgur.com/N4VcUeJ.jpg"
-              /></a>
-              <div class="info">
-                <a href="" class="author">Albert Pai</a>
-                <span class="date">January 20th</span>
-              </div>
-              <button class="btn btn-outline-primary btn-sm pull-xs-right">
-                <i class="ion-heart"></i> 32
-              </button>
-            </div>
-            <a href="" class="preview-link">
-              <h1>
-                The song you won't ever stop singing. No matter how hard you
-                try.
-              </h1>
-              <p>This is the description for the post.</p>
-              <span>Read more...</span>
-            </a>
-          </div>
+          <ArticlePreview
+            v-for="article in articles"
+            :key="article.slug"
+            :article="article"
+          ></ArticlePreview>
         </div>
-
         <div class="col-md-3">
           <div class="sidebar">
             <p>Popular Tags</p>
@@ -85,3 +47,52 @@
     </div>
   </div>
 </template>
+
+<script>
+import ArticlePreview from "@/components/ArticlePreview.vue";
+export default {
+  components: {
+    ArticlePreview
+  },
+  data: function() {
+    return {
+      articles: [
+        {
+          slug: "how-to-train-your-dragon",
+          title: "How to train your dragon",
+          description: "Ever wonder how?",
+          body: "It takes a Jacobian",
+          tagList: ["dragons", "training"],
+          createdAt: "2016-02-18T03:22:56.637Z",
+          updatedAt: "2016-02-18T03:48:35.824Z",
+          favorited: false,
+          favoritesCount: 0,
+          author: {
+            username: "jake",
+            bio: "I work at statefarm",
+            image: "https://i.stack.imgur.com/xHWG8.jpg",
+            following: false
+          }
+        },
+        {
+          slug: "how-to-train-your-dragon-2",
+          title: "How to train your dragon 2",
+          description: "So toothless",
+          body: "It a dragon",
+          tagList: ["dragons", "training"],
+          createdAt: "2016-02-18T03:22:56.637Z",
+          updatedAt: "2016-02-18T03:48:35.824Z",
+          favorited: false,
+          favoritesCount: 0,
+          author: {
+            username: "jake",
+            bio: "I work at statefarm",
+            image: "https://i.stack.imgur.com/xHWG8.jpg",
+            following: false
+          }
+        }
+      ]
+    };
+  }
+};
+</script>
